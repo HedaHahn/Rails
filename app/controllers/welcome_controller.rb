@@ -5,7 +5,11 @@ class WelcomeController < ApplicationController
   def about
   end
 
+<<<<<<< HEAD
+  def faq
+=======
   def contact
+>>>>>>> master
   end
   
 end
