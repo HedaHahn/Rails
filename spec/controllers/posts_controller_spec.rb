@@ -55,6 +55,7 @@ RSpec.describe PostsController, type: :controller do
         expect(response).to redirect_to Post.last
       end
     end
+    
     describe "GET show" do
        it "returns http success" do
    # #16
