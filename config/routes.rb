@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
   resources :posts
-=======
   get 'advertisements/index'
 
   get 'advertisements/show'
@@ -12,7 +10,6 @@ Rails.application.routes.draw do
   get 'advertisements/create'
 
   resources :post
->>>>>>> 653d9713dbc2d23f872a9b501b1671ecd1a288e5
 
   get 'about' => 'welcome#about'
 
