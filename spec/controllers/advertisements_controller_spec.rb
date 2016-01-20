@@ -25,23 +25,18 @@ RSpec.describe AdvertisementsController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
+      get :show, {id: my_ad.id}
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders the #show view" do
+      get :show, {id: my_ad.id}
+      expect(response).to have _http_status(:success)
+    end
+
+    it "assigns my_ad to @advertisement" do
       get :show
-      expect(response).to have_http_status(:success)
+      expect(assigns(:advertisement)).to eq(my_ad)
     end
   end
-
-  describe "GET #new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end
