@@ -39,4 +39,20 @@ RSpec.describe AdvertisementsController, type: :controller do
       expect(assigns(:advertisement)).to eq(my_ad)
     end
   end
+
+  describe "POST creat" do
+    it "increases the number of advertisements by 1" do
+      expect(assigns(:advertisement)).to equ Advertisement.last
+    end
+
+    it "assigns the new advertisement to @advertisement" do
+      post :create, advertisement: {title: RandomData.random_sentence, copy: RandomData.random_paragraph, price: 99}
+      expect(assigns(:advertisement)).to eq Advertisement.last
+    end
+
+    it "redirects to the new advertisement" do
+      post :create, advertisement: {title: RandomData.random_sentence, copy: RandomData.random_paragraph, price: 99}
+      expect(response).to redirect_to Advertisement.last
+    end
+  end
 end
