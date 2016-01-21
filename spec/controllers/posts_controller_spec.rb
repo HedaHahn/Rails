@@ -33,13 +33,8 @@ RSpec.describe PostsController, type: :controller do
         get :new
         expect(assigns(:post)).not_to be_nil
       end
-  end
 
-<<<<<<< HEAD
-  describe "POST create" do
-=======
     describe "POST create" do
->>>>>>> 109cbf912e70f67000a5002cb9a9d0b15716d48c
       it "increases the number of Post by 1" do
         expect{post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}}.to change(Post,:count).by(1)
       end
@@ -53,15 +48,9 @@ RSpec.describe PostsController, type: :controller do
         post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
         expect(response).to redirect_to Post.last
       end
-<<<<<<< HEAD
-  end
-
-  describe "GET show" do
-=======
     end
 
     describe "GET show" do
->>>>>>> 109cbf912e70f67000a5002cb9a9d0b15716d48c
        it "returns http success" do
          get :show, {id: my_post.id}
          expect(response).to have_http_status(:success)
