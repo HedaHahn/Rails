@@ -19,20 +19,21 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "GET new" do
-      it "returns http success" do
-        get :new
-        expect(response).to have_http_status(:success)
-      end
+    it "returns http success" do
+      get :new
+      expect(response).to have_http_status(:success)
+    end
 
-      it "renders the #new view" do
-        get :new
-        expect(response).to render_template :new
-      end
+    it "renders the #new view" do
+      get :new
+      expect(response).to render_template :new
+    end
 
-      it "instantiates @post" do
-        get :new
-        expect(assigns(:post)).not_to be_nil
-      end
+    it "instantiates @post" do
+      get :new
+      expect(assigns(:post)).not_to be_nil
+    end
+  end
 
     describe "POST create" do
       it "increases the number of Post by 1" do
@@ -124,17 +125,15 @@ RSpec.describe PostsController, type: :controller do
 
           expect(response).to redirect_to posts_path
         end
-     end
+      end
 
-     def destroy
-       @post = Post.find(params[:id])
+      def destroy
+        @post = Post.find(params[:id])
 
-       if @post.destroy
-         flash[:notice] = "\"#{@post.title}\" was deleted successfully."
-         redirect_to posts_path
-       else
-         flash.now[:alert] = "There was an error deleting the post."
-         render :show
-       end
-     end
-end
+        if @post.destroy
+          flash[:notice] = "\"#{@post.title}\" was deleted successfully."
+          redirect_to posts_path
+        else
+          flash.now[:alert] = "There was an error deleting the post."
+          render :show
+        end
