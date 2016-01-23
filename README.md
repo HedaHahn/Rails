@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* Learning how to use Github
+* Learning how to use Github and Gists 
 
 ## Bloccit: a Reddit replica to teach the fundamentals of web development and Rails.
 
