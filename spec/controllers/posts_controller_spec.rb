@@ -137,3 +137,5 @@ RSpec.describe PostsController, type: :controller do
           flash.now[:alert] = "There was an error deleting the post."
           render :show
         end
+      end
+      
