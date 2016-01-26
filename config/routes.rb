@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
   resources :topics do
     resources :posts, except: [:index]
   end
+=======
+  resources :posts
+  resources :questions
+>>>>>>> 532d7ef18eecf49fa3324b958e7c7fc3afb417be
 
   get 'about' => 'welcome#about'
 
-  root 'welcome#about'
+  root to: 'welcome#about'
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

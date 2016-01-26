@@ -22,22 +22,23 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-    describe "POST create" do
-      it "increases the number of Post by 1" do
-        expect{post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}}.to change(Post,:count).by(1)
-      end
-
-      it "assigns the new post to @post" do
-        post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
-        expect(assigns(:post)).to eq Post.last
-      end
-
-      it "redirects to the new post" do
-        post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
-        expect(response).to redirect_to Post.last
-      end
+  describe "POST create" do
+    it "increases the number of Post by 1" do
+      expect{post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}}.to change(Post,:count).by(1)
     end
 
+    it "assigns the new post to @post" do
+      post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
+      expect(assigns(:post)).to eq Post.last
+    end
+
+    it "redirects to the new post" do
+      post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
+      expect(response).to redirect_to Post.last
+    end
+  end
+
+<<<<<<< HEAD
     describe "GET show" do
        it "returns http success" do
          expect(response).to have_http_status(:success)
@@ -50,7 +51,24 @@ RSpec.describe PostsController, type: :controller do
        it "assigns my_post to @post" do
          expect(assigns(:post)).to eq(my_post)
        end
+=======
+  describe "GET show" do
+     it "returns http success" do
+       get :show, {id: my_post.id}
+       expect(response).to have_http_status(:success)
+>>>>>>> 532d7ef18eecf49fa3324b958e7c7fc3afb417be
      end
+
+     it "renders the #show view" do
+       get :show, {id: my_post.id}
+       expect(response).to render_template :show
+     end
+
+     it "assigns my_post to @post" do
+       get :show, {id: my_post.id}
+       expect(assigns(:post)).to eq(my_post)
+     end
+  end
 
      describe "GET edit" do
        it "returns http success" do
@@ -107,4 +125,21 @@ RSpec.describe PostsController, type: :controller do
           expect(response).to redirect_to my_topic
         end
       end
+<<<<<<< HEAD
     end
+=======
+
+      def destroy
+        @post = Post.find(params[:id])
+
+        if @post.destroy
+          flash[:notice] = "\"#{@post.title}\" was deleted successfully."
+          redirect_to posts_path
+        else
+          flash.now[:alert] = "There was an error deleting the post."
+          render :show
+        end
+      end
+    end
+    
+>>>>>>> 532d7ef18eecf49fa3324b958e7c7fc3afb417be

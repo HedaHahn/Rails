@@ -1,18 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  let(:question) { Question.new(title: "New Question body", body: "New Question body", resolved: false) }
-  let(:answer) { Answer.new(question: question, body: "New Answer body") }
+  context "attributes" do
+    let(:question) {Question.new(title: "New Question Title", body: "New Question body", resolved: false)}
 
-  it "should respong to title" do
-    expect(question).to respond_to(:title)
-  end
+    it "should respond to title" do
+      expect(question).to respond_to(:title)
+    end
 
-  it "should respond to body" do
-    expect(question).to respond_to(:body)
-  end
+    it "should respond to body" do
+      expect(question).to respond_to(:body)
+    end
 
-  it "should respond to resolved" do
-    expect(question).to respond_to(:resolved)
+    it "should respond to resolved" do
+      expect(question).to respond_to(:resolved)
+    end
   end
 end
