@@ -7,7 +7,8 @@ RSpec.describe QuestionsController, type: :controller do
       id: 1,
       title:  RandomData.random_sentence,
       body:   RandomData.random_paragraph
-      resolved: false)
+      resolved: false
+      )
   end
 
   describe "GET #index" do
@@ -70,7 +71,6 @@ RSpec.describe QuestionsController, type: :controller do
       it "updates question with expected attributes" do
         new_title = RandomData.random_sentence
         new_body = RandomData.random_paragraph
-
         put :update, id: my_question.id, question: { title: new_title, body: new_body resolved: false }
 
         updated_question = assigns(:question)
@@ -82,7 +82,6 @@ RSpec.describe QuestionsController, type: :controller do
       it "redirects to the updated question" do
         new_title = RandomData.random_sentence
         new_body = RandomData.random_paragraph
-
         put :update, id: my_question.id, question: { title: new_title, body: new_body resolved: true }
         expect(response).to redirect_to my_question
       end
