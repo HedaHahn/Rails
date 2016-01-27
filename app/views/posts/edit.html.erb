@@ -10,7 +10,11 @@
      </ul>
    </div>
    <div class="col-md-8">
+<<<<<<< HEAD
+       <%= form_for [@post.topic, @post] do |f| %>
+=======
      <%= form_for @question do |f| %>
+>>>>>>> 532d7ef18eecf49fa3324b958e7c7fc3afb417be
        <div class="form-group">
          <%= f.label :title %>
          <%= f.text_field :title, class: 'form-control', placeholder: "Enter question title" %>
