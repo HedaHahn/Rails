@@ -20,6 +20,7 @@ class QuestionsController < ApplicationController
       flash[:error] = "THere was an error saving the question. Please try again."
       render :new
     end
+  end
 
   def edit
     @question = Question.find(params[:id])
@@ -40,10 +41,11 @@ class QuestionsController < ApplicationController
     @question = Question.find(parms[:id])
 
     if @question.destroy
-      flash[:notice] + "\"#{question.title}\" was deleted successfully."
+      flash[:notice] = "\"#{question.title}\" was deleted successfully."
       redirect_to question_path
     else
       flash[:error] = "There was an error deleting the question."
       render :show
     end
   end
+end

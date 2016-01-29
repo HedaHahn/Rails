@@ -50,6 +50,7 @@ RSpec.describe PostsController, type: :controller do
        it "assigns my_post to @post" do
          expect(assigns(:post)).to eq(my_post)
        end
+     end
 
   describe "GET show" do
      it "returns http success" do
@@ -70,7 +71,7 @@ RSpec.describe PostsController, type: :controller do
 
      describe "GET edit" do
        it "returns http success" do
-          get :edit, topic_id: my_topic.id, id:, my_post.id
+          get :edit, topic_id: my_topic.id, id: my_post.id
           expect(response).to have_http_status(:success)
         end
 
