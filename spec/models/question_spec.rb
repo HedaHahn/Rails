@@ -4,7 +4,7 @@ RSpec.describe Question, type: :model do
   let(:question) { Question.new(title: "New Question body", body: "New Question body", resolved: false) }
   let(:answer) { Answer.new(question: question, body: "New Answer body") }
 
-  it "should respong to title" do
+  it "should respond to title" do
     expect(question).to respond_to(:title)
   end
 
