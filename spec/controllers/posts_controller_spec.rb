@@ -139,3 +139,4 @@ RSpec.describe PostsController, type: :controller do
         render :show
       end
     end
+  end
