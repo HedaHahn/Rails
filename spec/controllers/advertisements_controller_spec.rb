@@ -40,7 +40,7 @@ RSpec.describe AdvertisementsController, type: :controller do
     end
   end
 
-  describe "POST creat" do
+  describe "POST create" do
     it "increases the number of advertisements by 1" do
       expect(assigns(:advertisement)).to equ Advertisement.last
     end
