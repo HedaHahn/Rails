@@ -1,8 +1,5 @@
-<<<<<<< HEAD
  <h1>New Post</h1>
-=======
  <h1>New Question</h1>
->>>>>>> 532d7ef18eecf49fa3324b958e7c7fc3afb417be
 
  <div class="row">
    <div class="col-md-4">
@@ -15,12 +12,12 @@
    </div>
 
    <div class="col-md-8">
-<<<<<<< HEAD
+
       <%= form_for [@topic, @post] do |f| %>
        <div class="form-group">
          <%= f.label :title %>
          <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
-=======
+
      <%= form_for @question do |f| %>
        <div class="form-group">
          <%= f.label :title %>
