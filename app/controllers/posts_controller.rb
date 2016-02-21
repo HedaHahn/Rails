@@ -3,7 +3,7 @@ class PostsController < ApplicationController
      @posts = Post.all
    end
 
-   def create
+   def update
 
      @post = Post.new
      @post.title = params[:post][:title]
@@ -20,6 +20,18 @@ class PostsController < ApplicationController
      end
    end
 
+   def destroy
+     @post = Post.find(params[:id])
+
+     if @post.destroy
+       flash[:notice] = "\"#{@post.title}\" was deleted successfully."
+       redirect_to posts_path
+     else
+       flash.now[:alert] = "There was an error deleting the post."
+       render :show
+     end
+   end
+
    def show
    end
 
@@ -32,5 +44,5 @@ class PostsController < ApplicationController
 
    def faq
    end
-   
+
  end
