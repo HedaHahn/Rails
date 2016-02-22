@@ -9,7 +9,7 @@ RSpec.describe TopicsController, type: :controller do
        expect(response).to have_http_status(:success)
      end
 
-     it "assigns my_topic to @topics" do
+     it "assigns my_topic to @topic" do
        get :index
        expect(assigns(:topics)).to eq([my_topic])
      end
@@ -103,4 +103,21 @@ RSpec.describe TopicsController, type: :controller do
            expect(response).to redirect_to topics_path
          end
        end
+
+       describe "GET new" do
+          it "returns http success" do
+            get :new
+            expect(response).to have_http_status(:success)
+          end
+
+          it "renders the #new view" do
+            get :new
+            expect(response).to render_template :new
+          end
+
+          it "initializes @topic" do
+            get :new
+            expect(assigns(:topic)).not_to be_nil
+          end
+        end
    end
