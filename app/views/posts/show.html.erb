@@ -1,16 +1,13 @@
-<<<<<<< HEAD
-
 <h1><%= @post.title %></h1>
 
  <div class="row">
    <div class="col-md-8">
      <p><%= @post.body %></p>
    </div>
-=======
-<h1><%= @question.title %></h1>
-<p><%= @question.body %></p>
-<p><%= @question.resolved %></p>
->>>>>>> 532d7ef18eecf49fa3324b958e7c7fc3afb417be
+
+   <h1><%= @question.title %></h1>
+   <p><%= @question.body %></p>
+   <p><%= @question.resolved %></p>
 
    <div class="col-md-4">
      <%= link_to "Edit", edit_question_path(@post), class: 'btn btn-success' %>
