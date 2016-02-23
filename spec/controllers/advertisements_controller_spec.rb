@@ -31,10 +31,10 @@ RSpec.describe AdvertisementsController, type: :controller do
 
     it "renders the #show view" do
       get :show, {id: my_ad.id}
-      expect(response).to have _http_status(:success)
+      expect(response).to have_http_status(:success)
     end
 
-    it "assigns my_ad to @advertisement" do
+    it "assigns my_ad to @advertisements" do
       get :show
       expect(assigns(:advertisement)).to eq(my_ad)
     end
