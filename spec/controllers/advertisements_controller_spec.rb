@@ -4,7 +4,6 @@ include RandomData
 RSpec.describe AdvertisementsController, type: :controller do
   let (:my_ad) do
     Advertisement.create(
-      id: 1,
       title: RandomData.random_sentence,
       copy:  RandomData.random_paragraph,
       price: 99
@@ -19,7 +18,7 @@ RSpec.describe AdvertisementsController, type: :controller do
 
     it "assigns [my_ad] to @advertisements" do
       get :index
-      expect(assigns(:adverstisements)).to eq([my_ad])
+      expect(assigns(:advertisements)).to eq([my_ad])
     end
   end
 
@@ -35,14 +34,14 @@ RSpec.describe AdvertisementsController, type: :controller do
     end
 
     it "assigns my_ad to @advertisements" do
-      get :show
+      get :show, { id: my_ad.id }
       expect(assigns(:advertisement)).to eq(my_ad)
     end
   end
 
   describe "POST create" do
     it "increases the number of advertisements by 1" do
-      expect(assigns(:advertisement)).to equ Advertisement.last
+      expect(assigns(:advertisement)).to eq Advertisement.last
     end
 
     it "assigns the new advertisement to @advertisement" do
