@@ -4,9 +4,8 @@ include RandomData
 RSpec.describe QuestionsController, type: :controller do
   let (:my_question) do
     Question.create(
-      id: 1,
       title:  RandomData.random_sentence,
-      body:   RandomData.random_paragraph
+      body:   RandomData.random_paragraph,
       resolved: false
       )
   end
@@ -23,7 +22,7 @@ RSpec.describe QuestionsController, type: :controller do
     end
   end
 
-  descirbe "GET show" do
+  describe "GET show" do
     it "returns http success" do
       get :show, {id: my_question.id}
       expect(response).to have_http_status(:success)
@@ -39,7 +38,7 @@ RSpec.describe QuestionsController, type: :controller do
       expect(assigns(:question)).to eq(my_question)
     end
 
-    descirbe "POST create" do
+    describe "POST create" do
       it "increases the number of Questions by 1" do
         get :show, {id: my_question.id}
         expect{ post :create, {question: {title: "Title", body: "body", resolved: false}}}.to change(Question,:count).by(1)
@@ -71,7 +70,7 @@ RSpec.describe QuestionsController, type: :controller do
       it "updates question with expected attributes" do
         new_title = RandomData.random_sentence
         new_body = RandomData.random_paragraph
-        put :update, id: my_question.id, question: { title: new_title, body: new_body resolved: false }
+        put :update, id: my_question.id, question: { title: new_title, body: new_body, resolved: false }
 
         updated_question = assigns(:question)
         expect(updated_question.id).to eq my_question.id
@@ -82,7 +81,7 @@ RSpec.describe QuestionsController, type: :controller do
       it "redirects to the updated question" do
         new_title = RandomData.random_sentence
         new_body = RandomData.random_paragraph
-        put :update, id: my_question.id, question: { title: new_title, body: new_body resolved: true }
+        put :update, id: my_question.id, question: { title: new_title, body: new_body, resolved: true }
         expect(response).to redirect_to my_question
       end
     end
@@ -94,9 +93,9 @@ RSpec.describe QuestionsController, type: :controller do
         expect(count).to eq 0
       end
 
-      it "redirects to question index"
+      it "redirects to question index" do
         delete :destroy, {id: my_question.id}
         expect(response).to redirect_to question_path
       end
     end
-end
+  end
