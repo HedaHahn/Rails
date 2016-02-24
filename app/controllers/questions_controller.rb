@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  
   def index
     @questions = Question.all
   end
@@ -20,6 +21,7 @@ class QuestionsController < ApplicationController
       flash[:error] = "THere was an error saving the question. Please try again."
       render :new
     end
+  end
 
   def edit
     @question = Question.find(params[:id])
@@ -47,3 +49,4 @@ class QuestionsController < ApplicationController
       render :show
     end
   end
+end
