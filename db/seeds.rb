@@ -17,9 +17,9 @@ include RandomData
   end
   topics = Topic.all
 
- # Create Posts
+
  50.times do
- # #1
+
    Post.create!(
      topic:  topics.sample,
      title:  RandomData.random_sentence,
@@ -29,10 +29,9 @@ include RandomData
  posts = Post.all
 
  # Create Comments
- # #3
+
  100.times do
    Comment.create!(
- # #4
      post: posts.sample,
      body: RandomData.random_paragraph
    )
