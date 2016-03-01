@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :topics
+    resources :SponsoredPost
   resources :posts
   resources :questions
 
