@@ -163,7 +163,7 @@ RSpec.describe PostsController, type: :controller do
           delete :destroy, topic_id: my_topic.id, id: my_post.id
           expect(response).to redirect_to my_topic
         end
-
+          it " " do
          get :show, {id: my_post.id}
          expect(assigns(:post)).to eq(my_post)
        end
