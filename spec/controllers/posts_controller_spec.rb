@@ -40,8 +40,9 @@ RSpec.describe PostsController, type: :controller do
 
     describe "GET show" do
        it "returns http success" do
-      expect(assigns(:posts)).to eq ([my_post])
-    end
+         expect(assigns(:posts)).to eq ([my_post])
+       end
+     end
 
     describe "GET new" do
       it "returns http success" do
@@ -164,6 +165,7 @@ RSpec.describe PostsController, type: :controller do
           expect(response).to redirect_to my_topic
         end
 
+        it "shows topic view" do
          get :show, {id: my_post.id}
          expect(assigns(:post)).to eq(my_post)
        end
