@@ -4,7 +4,6 @@ include RandomData
 RSpec.describe QuestionsController, type: :controller do
   let (:my_question) do
     Question.create(
-      id: 1,
       title:  RandomData.random_sentence,
       body:   RandomData.random_paragraph,
       resolved: false
