@@ -13,12 +13,11 @@ RSpec.describe PostsController, type: :controller do
 
     it "assigns [my_post] to @posts" do
       get :index
-
-      expect(assigns(:posts)).to eq ([my_posts])
+      expect(assigns(:posts)).to eq ([my_post])
     end
   end
 
-  describe "GET new" do
+  describe "GET #new" do
     it "returns http success" do
       get :new
       expect(response).to have_http_status(:success)
@@ -29,7 +28,7 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to render_template :new
     end
 
-    it "instantiates @post" do
+    it "instantiates @posts" do
       get :new
       expect(assigns(:post)).not_to be_nil
     end
