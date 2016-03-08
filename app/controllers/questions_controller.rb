@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+
   def index
     @question = Question.all
   end
@@ -17,7 +18,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = "Question was saved"
       redirect_to @question
     else
-      flash[:error] = "THere was an error saving the question. Please try again."
+      flash[:error] = "There was an error saving the question. Please try again."
       render :new
     end
   end
@@ -27,7 +28,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(parms[:id])
+    @question = Question.find(params[:id])
     if @question.update_attributes(parms.require(:question).permit(:title, :body, :resolved))
       flash[:notice] = "Question was updated."
       redirect_to @question
@@ -38,7 +39,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(parms[:id])
+    @question = Question.find(params[:id])
 
     if @question.destroy
       flash[:notice] = "\"#{question.title}\" was deleted successfully."
